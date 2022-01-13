@@ -54,7 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drink.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Liquid.cs" />
+    <Compile Include="Mix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
