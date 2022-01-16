@@ -1,4 +1,6 @@
-﻿using MixologyInventory.Model.Liquid;
+﻿using Microsoft.AspNet.Identity;
+using MixologyInventory.Model.Liquid;
+using MixologyInventory.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,10 @@ namespace MixologyInventory.WebMVC.Controllers
         // GET: Liquid
         public ActionResult Index()
         {
-            var model = new LiquidListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new LiquidService(userId);
+            var model = service.GetLiquids();
+
             return View(model);
         }
 
@@ -28,11 +33,17 @@ namespace MixologyInventory.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(LiquidCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new LiquidService(userId);
+
+            service.CreateLiquid(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
