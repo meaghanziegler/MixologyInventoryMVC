@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixologyInventory.WebMVC", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixologyInventory.Data", "MixologyInventory.Data\MixologyInventory.Data.csproj", "{334F08A4-A4DD-45E5-A692-21FBE6C65969}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixologyInventory.Modules", "MixologyInventory.Modules\MixologyInventory.Modules.csproj", "{345558DF-AE61-4EC3-BE50-8BA0DDFB26D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixologyInventory.Model", "MixologyInventory.Modules\MixologyInventory.Model.csproj", "{345558DF-AE61-4EC3-BE50-8BA0DDFB26D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MixologyInventory.Services", "MixologyInventory.Services\MixologyInventory.Services.csproj", "{76D257EB-E86F-4FDA-94AA-D0A086E22168}"
 EndProject

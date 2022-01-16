@@ -236,6 +236,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Liquid\Index.cshtml" />
+    <Content Include="Views\Liquid\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -258,9 +259,9 @@
       <Project>{334f08a4-a4dd-45e5-a692-21fbe6c65969}</Project>
       <Name>MixologyInventory.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MixologyInventory.Modules\MixologyInventory.Modules.csproj">
+    <ProjectReference Include="..\MixologyInventory.Modules\MixologyInventory.Model.csproj">
       <Project>{345558df-ae61-4ec3-be50-8ba0ddfb26d5}</Project>
-      <Name>MixologyInventory.Modules</Name>
+      <Name>MixologyInventory.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\MixologyInventory.Services\MixologyInventory.Services.csproj">
       <Project>{76d257eb-e86f-4fda-94aa-d0a086e22168}</Project>
