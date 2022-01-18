@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Liquid\LiquidCreate.cs" />
+    <Compile Include="Liquid\LiquidDetail.cs" />
     <Compile Include="Liquid\LiquidListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

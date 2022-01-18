@@ -49,5 +49,27 @@ namespace MixologyInventory.Services
                 }).ToArray();
             }
         }
+
+        public LiquidDetail GetLiquidById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Liquids
+                        .Single(e => e.ID == id);
+                return
+                    new LiquidDetail
+                    {
+                        LiquidID = entity.ID,
+                        Brand = entity.Brand,
+                        Name = entity.Name,
+                        Amount = entity.Amount,
+                        LiquidType = entity.LiquidType,
+                        Proof = entity.Proof,
+                        Comment = entity.Comment
+                    };
+            }
+        }
     }
 }

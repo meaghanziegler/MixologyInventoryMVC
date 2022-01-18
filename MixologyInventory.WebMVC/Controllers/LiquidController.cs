@@ -48,6 +48,14 @@ namespace MixologyInventory.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateLiquidService();
+            var model = svc.GetLiquidById(id);
+
+            return View(model);
+        }
+
         private LiquidService CreateLiquidService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
