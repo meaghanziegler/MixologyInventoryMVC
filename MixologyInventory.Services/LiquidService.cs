@@ -61,7 +61,7 @@ namespace MixologyInventory.Services
                 return
                     new LiquidDetail
                     {
-                        LiquidID = entity.ID,
+                        InventoryID = entity.ID,
                         Brand = entity.Brand,
                         Name = entity.Name,
                         Amount = entity.Amount,
