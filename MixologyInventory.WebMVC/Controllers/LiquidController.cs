@@ -100,6 +100,29 @@ namespace MixologyInventory.WebMVC.Controllers
             return View();
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateLiquidService();
+            var model = svc.GetLiquidById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateLiquidService();
+
+            service.DeleteLiquid(id);
+
+            TempData["SaveResult"] = "Your liquid was removed from the Inventory.";
+
+            return RedirectToAction("Index");
+        }
+
         private LiquidService CreateLiquidService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

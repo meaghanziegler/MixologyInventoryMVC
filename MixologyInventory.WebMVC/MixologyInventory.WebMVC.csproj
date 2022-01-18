@@ -239,6 +239,7 @@
     <Content Include="Views\Liquid\Create.cshtml" />
     <Content Include="Views\Liquid\Details.cshtml" />
     <Content Include="Views\Liquid\Edit.cshtml" />
+    <Content Include="Views\Liquid\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
