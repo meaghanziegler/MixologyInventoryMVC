@@ -33,17 +33,26 @@ namespace MixologyInventory.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(LiquidCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateLiquidService();
+
+            if (service.CreateLiquid(model))
+            {
+                TempData["SaveResult"] = "Your liquid was added.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Liquid could not be added.");
+
+            return View(model);
+        }
+
+        private LiquidService CreateLiquidService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new LiquidService(userId);
-
-            service.CreateLiquid(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
