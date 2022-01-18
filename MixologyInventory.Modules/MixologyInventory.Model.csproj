@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drink\DrinkListItem.cs" />
     <Compile Include="Liquid\LiquidCreate.cs" />
     <Compile Include="Liquid\LiquidDetail.cs" />
     <Compile Include="Liquid\LiquidEdit.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Drink\" />
     <Folder Include="Mix\" />
   </ItemGroup>
   <ItemGroup>
