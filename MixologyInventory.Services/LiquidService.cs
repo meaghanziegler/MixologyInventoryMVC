@@ -71,5 +71,26 @@ namespace MixologyInventory.Services
                     };
             }
         }
+
+        public bool UpdateLiquid(LiquidEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Liquids
+                        .Single(e => e.ID == model.InventoryID);
+
+                entity.ID = model.InventoryID;
+                entity.Brand = model.Brand;
+                entity.Name = model.Name;
+                entity.Amount = model.Amount;
+                entity.LiquidType = model.LiquidType;
+                entity.Proof = model.Proof;
+                entity.Comment = model.Comment;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

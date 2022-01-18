@@ -48,12 +48,56 @@ namespace MixologyInventory.WebMVC.Controllers
             return View(model);
         }
 
+        // GET: Liquid/Details/{id}
         public ActionResult Details(int id)
         {
             var svc = CreateLiquidService();
             var model = svc.GetLiquidById(id);
 
             return View(model);
+        }
+
+        // EDIT: Liquid/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = CreateLiquidService();
+            var detail = service.GetLiquidById(id);
+            var model =
+                new LiquidEdit
+                {
+                    InventoryID = detail.InventoryID,
+                    Brand = detail.Brand,
+                    Name = detail.Name,
+                    Amount = detail.Amount,
+                    LiquidType = detail.LiquidType,
+                    Proof = detail.Proof,
+                    Comment = detail.Comment
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, LiquidEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.InventoryID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateLiquidService();
+
+            if (service.UpdateLiquid(model))
+            {
+                TempData["SaveResult"] = "Your liquid has been updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your liquid could not be updated.");
+            return View();
         }
 
         private LiquidService CreateLiquidService()
