@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drink\DrinkCreate.cs" />
     <Compile Include="Drink\DrinkListItem.cs" />
     <Compile Include="Liquid\LiquidCreate.cs" />
     <Compile Include="Liquid\LiquidDetail.cs" />

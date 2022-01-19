@@ -242,6 +242,7 @@
     <Content Include="Views\Liquid\Edit.cshtml" />
     <Content Include="Views\Liquid\Delete.cshtml" />
     <Content Include="Views\Drink\Index.cshtml" />
+    <Content Include="Views\Drink\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
