@@ -36,12 +36,24 @@ namespace MixologyInventory.WebMVC.Controllers
                 return View(model);
             }
 
+            var service = CreateDrinkService();
+
+            if (service.CreateDrink(model))
+            {
+                TempData["SaveResult"] = "Your recipe was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Recipe could not be created.");
+
+            return View(model);
+        }
+
+        private DrinkService CreateDrinkService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new DrinkService(userId);
-
-            service.CreateDrink(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
