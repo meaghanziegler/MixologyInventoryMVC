@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrinkService.cs" />
     <Compile Include="LiquidService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

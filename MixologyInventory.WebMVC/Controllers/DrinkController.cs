@@ -1,4 +1,6 @@
-﻿using MixologyInventory.Model.Drink;
+﻿using Microsoft.AspNet.Identity;
+using MixologyInventory.Model.Drink;
+using MixologyInventory.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,9 @@ namespace MixologyInventory.WebMVC.Controllers
         // GET: Drink
         public ActionResult Index()
         {
-            var model = new DrinkListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new DrinkService(userId);
+            var model = service.GetDrinks();
             return View(model);
         }
 
@@ -27,11 +31,17 @@ namespace MixologyInventory.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(DrinkCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new DrinkService(userId);
+
+            service.CreateDrink(model);
+
+            return RedirectToAction("Index");
         }
     }
 }
