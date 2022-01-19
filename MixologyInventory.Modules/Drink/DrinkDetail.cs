@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MixologyInventory.Modules.Drink
+namespace MixologyInventory.Model.Drink
 {
     public class DrinkDetail
     {
