@@ -88,5 +88,20 @@ namespace MixologyInventory.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteDrink(int recipeId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Drinks
+                        .Single(e => e.ID == recipeId);
+
+                ctx.Drinks.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

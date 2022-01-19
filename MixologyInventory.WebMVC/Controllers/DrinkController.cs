@@ -98,6 +98,29 @@ namespace MixologyInventory.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateDrinkService();
+            var model = svc.GetDrinkById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateDrinkService();
+
+            service.DeleteDrink(id);
+
+            TempData["SaveResult"] = "Your recipe was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         private DrinkService CreateDrinkService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
