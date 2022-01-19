@@ -69,5 +69,24 @@ namespace MixologyInventory.Services
                     };
             }
         }
+
+        public bool UpdateDrink(DrinkEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Drinks
+                        .Single(e => e.ID == model.RecipeID);
+
+                entity.DrinkName = model.DrinkName;
+                entity.LiquidName = model.LiquidName;
+                entity.LiquidAmount = model.LiquidAmount;
+                entity.Directions = model.Directions;
+                entity.Description = model.Decription;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

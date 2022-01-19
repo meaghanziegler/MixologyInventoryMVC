@@ -57,6 +57,23 @@ namespace MixologyInventory.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateDrinkService();
+            var detail = service.GetDrinkById(id);
+            var model =
+                new DrinkEdit
+                {
+                    RecipeID = detail.RecipeID,
+                    DrinkName = detail.DrinkName,
+                    LiquidName = detail.LiquidName,
+                    LiquidAmount = detail.LiquidAmount,
+                    Directions = detail.Directions,
+                    Decription = detail.Description
+                };
+            return View(model);
+        }
+
         private DrinkService CreateDrinkService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
