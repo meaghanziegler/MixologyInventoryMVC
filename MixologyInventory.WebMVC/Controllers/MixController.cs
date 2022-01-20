@@ -39,9 +39,15 @@ namespace MixologyInventory.WebMVC.Controllers
 
             var service = CreateMixService();
 
-            service.CreateMix(model);
+            if (service.CreateMix(model))
+            {
+                TempData["SaveResult"] = "Your Mix was created.";
+                return RedirectToAction("Index");
+            };
 
-            return RedirectToAction("Index");
+            ModelState.AddModelError("", "Mix could not be created.");
+
+            return View(model);
         }
 
         private MixService CreateMixService()
