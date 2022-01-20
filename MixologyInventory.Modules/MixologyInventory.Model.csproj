@@ -58,6 +58,7 @@
     <Compile Include="Liquid\LiquidListItem.cs" />
     <Compile Include="Mix\MixCreate.cs" />
     <Compile Include="Mix\MixDetail.cs" />
+    <Compile Include="Mix\MixEdit.cs" />
     <Compile Include="Mix\MixListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
