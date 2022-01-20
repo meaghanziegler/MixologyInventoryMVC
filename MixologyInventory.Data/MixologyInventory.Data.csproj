@@ -57,12 +57,29 @@
     <Compile Include="Drink.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Liquid.cs" />
+    <Compile Include="Migrations\202201131915495_InitialCreate.cs" />
+    <Compile Include="Migrations\202201131915495_InitialCreate.Designer.cs">
+      <DependentUpon>202201131915495_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201201500078_InitalMigration.cs" />
+    <Compile Include="Migrations\202201201500078_InitalMigration.Designer.cs">
+      <DependentUpon>202201201500078_InitalMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202201131915495_InitialCreate.resx">
+      <DependentUpon>202201131915495_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201201500078_InitalMigration.resx">
+      <DependentUpon>202201201500078_InitalMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

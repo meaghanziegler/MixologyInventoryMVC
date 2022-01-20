@@ -56,11 +56,11 @@
     <Compile Include="Liquid\LiquidDetail.cs" />
     <Compile Include="Liquid\LiquidEdit.cs" />
     <Compile Include="Liquid\LiquidListItem.cs" />
+    <Compile Include="Mix\MixCreate.cs" />
+    <Compile Include="Mix\MixListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mix\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
