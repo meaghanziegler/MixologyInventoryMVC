@@ -75,6 +75,30 @@ namespace MixologyInventory.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, MixEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.MixID != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateMixService();
+
+            if(service.UpdateMix(model))
+            {
+                TempData["Saveresult"] = "Your Mix was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your mix could not be updated.");
+            return View(model);
+        }
+
         private MixService CreateMixService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
