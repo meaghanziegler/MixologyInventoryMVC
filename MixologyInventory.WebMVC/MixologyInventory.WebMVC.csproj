@@ -251,6 +251,7 @@
     <Content Include="Views\Mix\Create.cshtml" />
     <Content Include="Views\Mix\Details.cshtml" />
     <Content Include="Views\Mix\Edit.cshtml" />
+    <Content Include="Views\Mix\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

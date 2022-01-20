@@ -92,5 +92,18 @@ namespace MixologyInventory.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        
+        public bool DeleteMix(int mixId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Mixes.Single(e => e.ID == mixId);
+
+                ctx.Mixes.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
