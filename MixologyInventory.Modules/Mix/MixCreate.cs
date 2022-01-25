@@ -11,6 +11,6 @@ namespace MixologyInventory.Model.Mix
         public string Name { get; set; }
         public int DrinkID { get; set; }
         public int LiquidID { get; set; }
-        public decimal Amount { get; set; }
+        public decimal AmountOfDrink { get; set; }
     }
 }

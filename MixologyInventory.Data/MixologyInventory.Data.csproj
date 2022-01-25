@@ -65,6 +65,14 @@
     <Compile Include="Migrations\202201201500078_InitalMigration.Designer.cs">
       <DependentUpon>202201201500078_InitalMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201251033545_SecondMigration.cs" />
+    <Compile Include="Migrations\202201251033545_SecondMigration.Designer.cs">
+      <DependentUpon>202201251033545_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201252110247_ThirdMigration.cs" />
+    <Compile Include="Migrations\202201252110247_ThirdMigration.Designer.cs">
+      <DependentUpon>202201252110247_ThirdMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +87,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201201500078_InitalMigration.resx">
       <DependentUpon>202201201500078_InitalMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201251033545_SecondMigration.resx">
+      <DependentUpon>202201251033545_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201252110247_ThirdMigration.resx">
+      <DependentUpon>202201252110247_ThirdMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

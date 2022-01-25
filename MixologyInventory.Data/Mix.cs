@@ -17,18 +17,18 @@ namespace MixologyInventory.Data
         public string Name { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Liquid))]
         public int LiquidID { get; set; }
-
-        [ForeignKey(nameof(LiquidID))]
         public virtual Liquid Liquid { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Drink))]
         public int DrinkID { get; set; }
-
-        [ForeignKey(nameof(DrinkID))]
         public virtual Drink Drink { get; set; }
 
         [Required]
-        public decimal Amount { get; set; }
+        [Display(Name = "Amount of Drink (oz)")]
+        public decimal AmountOfDrink { get; set; }
+
     }
 }

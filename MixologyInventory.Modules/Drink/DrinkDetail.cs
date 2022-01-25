@@ -9,10 +9,13 @@ namespace MixologyInventory.Model.Drink
     public class DrinkDetail
     {
         public int RecipeID { get; set; }
+
         public string DrinkName { get; set; }
-        public string LiquidName { get; set; }
-        public decimal LiquidAmount { get; set; }
+
+        public List<string> Liquids { get; set; }
+
         public string Directions { get; set; }
+
         public string Description { get; set; }
     }
 }

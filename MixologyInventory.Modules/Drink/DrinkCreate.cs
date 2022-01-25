@@ -10,10 +10,13 @@ namespace MixologyInventory.Model.Drink
     public class DrinkCreate
     {
         [Required]
+        [MaxLength(100, ErrorMessage = "Name is way to long man, shorten that shit up.")]
         public string DrinkName { get; set; }
-        public string LiquidName { get; set; }
-        public decimal LiquidAmount { get; set; }
+
+        [Required]
         public string Directions { get; set; }
+
+        [Required]
         public string Description { get; set; }
     }
 }

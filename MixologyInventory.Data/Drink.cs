@@ -13,13 +13,9 @@ namespace MixologyInventory.Data
         public int ID { get; set; }
 
         [Required]
-        public string LiquidName { get; set; }
-
-        [Required]
-        public decimal LiquidAmount { get; set; }
-
-        [Required]
         public string DrinkName { get; set; }
+
+        public virtual List<Mix> Mixes { get; set; }
 
         [Required]
         public string Directions { get; set; }

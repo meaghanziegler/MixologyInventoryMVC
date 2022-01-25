@@ -25,13 +25,19 @@ namespace MixologyInventory.Services
                     Name = model.Name,
                     DrinkID = model.DrinkID,
                     LiquidID = model.LiquidID,
-                    Amount = model.Amount
+                    AmountOfDrink = model.AmountOfDrink
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Mixes.Add(entity);
-                return ctx.SaveChanges() == 1;
+                var liquid = ctx.Liquids.Single(e => e.ID == model.LiquidID);
+                if (liquid != null)
+                {
+                    liquid.Amount -= model.AmountOfDrink;
+                    ctx.Mixes.Add(entity);
+                    return ctx.SaveChanges() == 1;
+                }
+                return false;
             }
         }
 
@@ -70,7 +76,7 @@ namespace MixologyInventory.Services
                             Name = entity.Liquid.Name,
                             Amount = entity.Liquid.Amount
                         },
-                        Amount = entity.Amount
+                        AmountOfDrink = entity.AmountOfDrink
                     };
             }
         }
@@ -83,24 +89,35 @@ namespace MixologyInventory.Services
                     ctx
                         .Mixes
                         .Single(e => e.ID == model.MixID);
+                var liquid = ctx.Liquids.Single(e => e.ID == model.LiquidID);
+                if (liquid != null)
+                {
+                    liquid.Amount += entity.AmountOfDrink;
+                    liquid.Amount -= model.AmountOfDrink;
+                    entity.Name = model.Name;
+                    entity.DrinkID = model.DrinkID;
+                    entity.LiquidID = model.LiquidID;
+                    entity.AmountOfDrink = model.AmountOfDrink;
 
-                entity.Name = model.Name;
-                entity.DrinkID = model.DrinkID;
-                entity.LiquidID = model.LiquidID;
-                entity.Amount = model.Amount;
-
-                return ctx.SaveChanges() == 1;
+                    return ctx.SaveChanges() == 1;
+                }
+                return false;
             }
         }
 
-        
+
         public bool DeleteMix(int mixId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.Mixes.Single(e => e.ID == mixId);
+                var liquid = ctx.Liquids.Single(e => e.ID == entity.LiquidID);
+                if (liquid != null)
+                {
+                    liquid.Amount += entity.AmountOfDrink;
+                }
 
-                ctx.Mixes.Remove(entity);
+                    ctx.Mixes.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

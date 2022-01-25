@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
+using MixologyInventory.Data;
 using MixologyInventory.Model.Mix;
 using MixologyInventory.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,7 @@ namespace MixologyInventory.WebMVC.Controllers
     [Authorize]
     public class MixController : Controller
     {
+        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Mix
         public ActionResult Index()
         {
@@ -32,22 +35,20 @@ namespace MixologyInventory.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(MixCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreateMixService();
 
             if (service.CreateMix(model))
             {
-                TempData["SaveResult"] = "Your Mix was created.";
+                TempData["SaveResult"] = "Your mix was added.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Mix could not be created.");
+            ModelState.AddModelError("", "Mix could not be added.");
 
             return View(model);
+
         }
 
         public ActionResult Details(int id)
@@ -69,7 +70,7 @@ namespace MixologyInventory.WebMVC.Controllers
                     Name = detail.Name,
                     DrinkID = detail.Drink.RecipeID,
                     LiquidID = detail.Liquid.InventoryID,
-                    Amount = detail.Amount
+                    AmountOfDrink = detail.AmountOfDrink
                 };
 
             return View(model);
@@ -81,7 +82,7 @@ namespace MixologyInventory.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            if(model.MixID != id)
+            if (model.MixID != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -89,9 +90,9 @@ namespace MixologyInventory.WebMVC.Controllers
 
             var service = CreateMixService();
 
-            if(service.UpdateMix(model))
+            if (service.UpdateMix(model))
             {
-                TempData["Saveresult"] = "Your Mix was updated.";
+                TempData["SaveResult"] = "Your Mix was updated.";
                 return RedirectToAction("Index");
             }
 
@@ -114,11 +115,9 @@ namespace MixologyInventory.WebMVC.Controllers
         public ActionResult DeleteMix(int id)
         {
             var service = CreateMixService();
-
             service.DeleteMix(id);
 
             TempData["SaveResult"] = "Your mix was deleted.";
-
             return RedirectToAction("Index");
         }
 

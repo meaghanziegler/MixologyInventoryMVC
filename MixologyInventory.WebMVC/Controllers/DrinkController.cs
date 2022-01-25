@@ -66,10 +66,8 @@ namespace MixologyInventory.WebMVC.Controllers
                 {
                     RecipeID = detail.RecipeID,
                     DrinkName = detail.DrinkName,
-                    LiquidName = detail.LiquidName,
-                    LiquidAmount = detail.LiquidAmount,
                     Directions = detail.Directions,
-                    Decription = detail.Description
+                    Description = detail.Description
                 };
             return View(model);
         }

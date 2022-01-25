@@ -23,8 +23,6 @@ namespace MixologyInventory.Services
                 new Drink()
                 {
                     DrinkName = model.DrinkName,
-                    LiquidName = model.LiquidName,
-                    LiquidAmount = model.LiquidAmount,
                     Directions = model.Directions,
                     Description = model.Description
                 };
@@ -57,13 +55,13 @@ namespace MixologyInventory.Services
                     ctx
                         .Drinks
                         .Single(e => e.ID == id);
+                
                 return
                     new DrinkDetail
                     {
                         RecipeID = entity.ID,
                         DrinkName = entity.DrinkName,
-                        LiquidName = entity.LiquidName,
-                        LiquidAmount = entity.LiquidAmount,
+                        Liquids = entity.Mixes.Select(d => d.Liquid.Name).ToList(),
                         Directions = entity.Directions,
                         Description = entity.Description
                     };
@@ -80,10 +78,9 @@ namespace MixologyInventory.Services
                         .Single(e => e.ID == model.RecipeID);
 
                 entity.DrinkName = model.DrinkName;
-                entity.LiquidName = model.LiquidName;
-                entity.LiquidAmount = model.LiquidAmount;
+                
                 entity.Directions = model.Directions;
-                entity.Description = model.Decription;
+                entity.Description = model.Description;
 
                 return ctx.SaveChanges() == 1;
             }
