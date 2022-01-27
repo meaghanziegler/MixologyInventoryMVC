@@ -19,7 +19,8 @@ namespace MixologyInventory.Model.Liquid
         public decimal Amount { get; set; }
 
         [Required]
-        public int LiquidType { get; set; }
+        [Display(Name="Liquid Type")]
+        public LiquidType LiquidType { get; set; }
 
         [Required]
         public decimal Proof { get; set; }

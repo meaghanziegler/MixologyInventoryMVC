@@ -49,10 +49,19 @@ namespace MixologyInventory.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Details")]
         public ActionResult Details(int id)
         {
             var svc = CreateDrinkService();
             var model = svc.GetDrinkById(id);
+
+            return View(model);
+        }
+
+        public ActionResult GetByName(string name)
+        {
+            var svc = CreateDrinkService();
+            var model = svc.GetDrinkByName(name);
 
             return View(model);
         }
@@ -66,6 +75,8 @@ namespace MixologyInventory.WebMVC.Controllers
                 {
                     RecipeID = detail.RecipeID,
                     DrinkName = detail.DrinkName,
+                    //LiquidName = detail.LiquidName,
+                    //LiquidAmount = detail.LiquidAmount,
                     Directions = detail.Directions,
                     Description = detail.Description
                 };

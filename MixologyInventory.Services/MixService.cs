@@ -35,7 +35,7 @@ namespace MixologyInventory.Services
                 {
                     liquid.Amount -= model.AmountOfDrink;
                     ctx.Mixes.Add(entity);
-                    return ctx.SaveChanges() == 1;
+                    return ctx.SaveChanges() == 2;
                 }
                 return false;
             }

@@ -21,6 +21,8 @@ namespace MixologyInventory.Data
         public int LiquidID { get; set; }
         public virtual Liquid Liquid { get; set; }
 
+        //public virtual List<Liquid> Liquids { get; set; } = new List<Liquid>();
+
         [Required]
         [ForeignKey(nameof(Drink))]
         public int DrinkID { get; set; }
@@ -29,6 +31,15 @@ namespace MixologyInventory.Data
         [Required]
         [Display(Name = "Amount of Drink (oz)")]
         public decimal AmountOfDrink { get; set; }
+
+        //[Display(Name="Total Liquid Needed")]
+        //public decimal TotalLiquid {
+        //    get
+        //    {
+        //        return Math.Round(Drink.LiquidAmount * AmountOfDrink, 2);
+        //    }
+        //}
+
 
     }
 }

@@ -23,6 +23,9 @@ namespace MixologyInventory.Services
                 new Drink()
                 {
                     DrinkName = model.DrinkName,
+                    //IngredientsInDrink = model.LiquidID,
+                    //LiquidName = model.LiquidName,
+                    //LiquidAmount = model.LiquidAmount,
                     Directions = model.Directions,
                     Description = model.Description
                 };
@@ -55,13 +58,48 @@ namespace MixologyInventory.Services
                     ctx
                         .Drinks
                         .Single(e => e.ID == id);
-                
+
+                var ingredientsInDrink = new List<string>();
+                foreach (var ingredients in entity.IngredientsInDrink)
+                {
+                    ingredientsInDrink.Add(ingredients.Name);
+                }
+
                 return
                     new DrinkDetail
                     {
                         RecipeID = entity.ID,
                         DrinkName = entity.DrinkName,
-                        Liquids = entity.Mixes.Select(d => d.Liquid.Name).ToList(),
+                        //LiquidName = entity.LiquidName,
+                        //LiquidAmount = entity.LiquidAmount,
+                        Directions = entity.Directions,
+                        Description = entity.Description
+                    };
+            }
+        }
+
+        public DrinkDetail GetDrinkByName(string drinkName)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Drinks
+                        .Single(e => e.DrinkName == drinkName);
+
+                var ingredientsInDrink = new List<string>();
+                foreach (var ingredients in entity.IngredientsInDrink)
+                {
+                    ingredientsInDrink.Add(ingredients.Name);
+                }
+
+                return
+                    new DrinkDetail
+                    {
+                        RecipeID = entity.ID,
+                        DrinkName = entity.DrinkName,
+                        //LiquidName = entity.LiquidName,
+                        //LiquidAmount = entity.LiquidAmount,
                         Directions = entity.Directions,
                         Description = entity.Description
                     };
@@ -78,7 +116,8 @@ namespace MixologyInventory.Services
                         .Single(e => e.ID == model.RecipeID);
 
                 entity.DrinkName = model.DrinkName;
-                
+                //entity.LiquidName = model.LiquidName;
+                //entity.LiquidAmount = model.LiquidAmount;
                 entity.Directions = model.Directions;
                 entity.Description = model.Description;
 

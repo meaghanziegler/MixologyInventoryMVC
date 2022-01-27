@@ -1,4 +1,5 @@
 ﻿using MixologyInventory.Data;
+using MixologyInventory.Model;
 using MixologyInventory.Model.Liquid;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace MixologyInventory.Services
                     Brand = model.Brand,
                     Name = model.Name,
                     Amount = model.Amount,
-                    LiquidType = model.LiquidType,
+                    LiquidType = (int)model.LiquidType,
                     Proof = model.Proof,
                     Comment = model.Comment
                 };
@@ -65,7 +66,7 @@ namespace MixologyInventory.Services
                         Brand = entity.Brand,
                         Name = entity.Name,
                         Amount = entity.Amount,
-                        LiquidType = entity.LiquidType,
+                        LiquidType = ((LiquidType)entity.LiquidType).ToString(),
                         Proof = entity.Proof,
                         Comment = entity.Comment
                     };
@@ -85,7 +86,7 @@ namespace MixologyInventory.Services
                 entity.Brand = model.Brand;
                 entity.Name = model.Name;
                 entity.Amount = model.Amount;
-                entity.LiquidType = model.LiquidType;
+                entity.LiquidType = (int)model.LiquidType;
                 entity.Proof = model.Proof;
                 entity.Comment = model.Comment;
 

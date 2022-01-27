@@ -3,48 +3,65 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="body-content" style="background-color:white;">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>DrinkDetail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RecipeID)
+            </dt>
 
-<div>
-    <h4>DrinkDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RecipeID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RecipeID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RecipeID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DrinkName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DrinkName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DrinkName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DrinkName)
-        </dd>
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.LiquidName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Directions)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LiquidName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Directions)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.LiquidAmount)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.LiquidAmount)
+                </dd>*@
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Directions)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Directions)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RecipeID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

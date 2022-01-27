@@ -73,6 +73,22 @@
     <Compile Include="Migrations\202201252110247_ThirdMigration.Designer.cs">
       <DependentUpon>202201252110247_ThirdMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201270817473_FourthMigration.cs" />
+    <Compile Include="Migrations\202201270817473_FourthMigration.Designer.cs">
+      <DependentUpon>202201270817473_FourthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201271033452_FifthMigration.cs" />
+    <Compile Include="Migrations\202201271033452_FifthMigration.Designer.cs">
+      <DependentUpon>202201271033452_FifthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201271118226_SixthMigration.cs" />
+    <Compile Include="Migrations\202201271118226_SixthMigration.Designer.cs">
+      <DependentUpon>202201271118226_SixthMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201271155341_SeventhMigration.cs" />
+    <Compile Include="Migrations\202201271155341_SeventhMigration.Designer.cs">
+      <DependentUpon>202201271155341_SeventhMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +109,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201252110247_ThirdMigration.resx">
       <DependentUpon>202201252110247_ThirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201270817473_FourthMigration.resx">
+      <DependentUpon>202201270817473_FourthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201271033452_FifthMigration.resx">
+      <DependentUpon>202201271033452_FifthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201271118226_SixthMigration.resx">
+      <DependentUpon>202201271118226_SixthMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201271155341_SeventhMigration.resx">
+      <DependentUpon>202201271155341_SeventhMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

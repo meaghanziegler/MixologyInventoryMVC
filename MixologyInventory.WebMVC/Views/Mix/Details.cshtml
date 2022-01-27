@@ -3,40 +3,97 @@
 @{
     ViewBag.Title = "Details";
 }
+<div class="body-content" style="background-color:white;">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>MixDetail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MixID)
+            </dt>
 
-<div>
-    <h4>MixDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.MixID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MixID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MixID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Drink.RecipeID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AmountOfDrink)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Drink.RecipeID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.AmountOfDrink)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Drink.DrinkName)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Drink.DrinkName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Drink.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Drink.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Liquid.InventoryID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Liquid.InventoryID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Liquid.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Liquid.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Liquid.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Liquid.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Liquid.Amount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Liquid.Amount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AmountOfDrink)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AmountOfDrink)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MixID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MixID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

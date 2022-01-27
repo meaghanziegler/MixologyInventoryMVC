@@ -12,7 +12,14 @@ namespace MixologyInventory.Model.Drink
         public int RecipeID { get; set; }
 
         [MaxLength(100, ErrorMessage = "Name is way to long, shorten that shit up.")]
+        [Display(Name ="Drink Name")]
         public string DrinkName { get; set; }
+
+        //[Display(Name = "Liquid Name")]
+        //public string LiquidName { get; set; }
+
+        //[Display(Name = "Liquid Amount (oz)")]
+        //public decimal LiquidAmount { get; set; }
 
         public string Directions { get; set; }
 

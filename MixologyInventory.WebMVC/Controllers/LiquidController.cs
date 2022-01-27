@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using MixologyInventory.Model;
 using MixologyInventory.Model.Liquid;
 using MixologyInventory.Services;
 using System;
@@ -69,7 +70,6 @@ namespace MixologyInventory.WebMVC.Controllers
                     Brand = detail.Brand,
                     Name = detail.Name,
                     Amount = detail.Amount,
-                    LiquidType = detail.LiquidType,
                     Proof = detail.Proof,
                     Comment = detail.Comment
                 };
